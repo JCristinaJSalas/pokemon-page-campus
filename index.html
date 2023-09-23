@@ -11,9 +11,38 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="main.js" defer ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+
+    <script type="module" src="main.js" defer></script>
   </head>
   <body>
-    <button id="pokemon">aqui</button>
+    <main>
+      <div class="contenedor-hero">
+        <h1>Pokemon Website</h1>
+        <p>Proyecto de consumo de API</p>
+        <button id="pokemon">Busca tu Pokemon</button>
+      </div>
+    </main>
+
+    <section class="slide">
+      <swiper-container
+        class="mySwiper"
+        pagination="true"
+        pagination-clickable="true"
+        slides-per-view="3"
+        space-between="30"
+        free-mode="true"
+      >
+        <swiper-slide>Slide 1</swiper-slide>
+        <swiper-slide>Slide 2</swiper-slide>
+        <swiper-slide>Slide 3</swiper-slide>
+        <swiper-slide>Slide 4</swiper-slide>
+        <swiper-slide>Slide 5</swiper-slide>
+        <swiper-slide>Slide 6</swiper-slide>
+        <swiper-slide>Slide 7</swiper-slide>
+        <swiper-slide>Slide 8</swiper-slide>
+        <swiper-slide>Slide 9</swiper-slide>
+      </swiper-container>
+    </section>
   </body>
 </html>

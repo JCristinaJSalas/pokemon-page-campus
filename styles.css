@@ -3,8 +3,9 @@
   --fontFamily: "Inclusive Sans", sans-serif;
   --bcolor: #191919;
   --colorLetra: #fff;
+  --botonColor: #f4dc26f3;
+  --botonHover: #fde742;
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -14,9 +15,88 @@ html {
   background-color: var(--bcolor);
   color: var(--colorLetra);
   font-family: var(--fontFamily);
+  font-size: 14px;
+  width: 100vw;
+  height: auto;
 }
 li,
 a {
   text-decoration: none;
   list-style-type: none;
 }
+button {
+  width: auto;
+  height: auto;
+  padding: 15px;
+  font-family: var(--fontFamily);
+  font-size: 1.2rem;
+  background-color: var(--botonColor);
+  border-radius: 16px;
+  box-shadow: 7px 6px 16px -4px rgba(0,0,0,0.75);
+  border: none;
+  transition: .5s all;
+}
+button:hover{
+    
+    box-shadow: 0px 0px 37px -10px #f4dc26;
+}
+
+main {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.63),
+      rgba(0, 0, 0, 0.486)
+    ),
+    url(/images/pokemon-background.jpg);
+  height: calc(100vh - 5px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.contenedor-hero {
+  width: 70%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+}
+.contenedor-hero h1{
+    font-size: 4.2rem;
+}
+.contenedor-hero p{
+    font-size: 1.8rem;
+}
+
+/* Estilos de los slide*/
+
+.slide{
+    width: 100vw;
+    height: 300px;
+    color: #000;
+
+}
+swiper-container {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 25px;
+  }
+
+  swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
