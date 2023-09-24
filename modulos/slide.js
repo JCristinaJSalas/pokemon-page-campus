@@ -3,14 +3,15 @@ import { mostrarApi, mostrarApiPokemon } from "./apiFunctions.js";
 
 const contenedorPokemon = document.querySelector(".contenedor-pokemons");
 
-export const slideSection = async (urlApi) => {
+export const pokemonSection = async (urlApi) => {
   const data = await mostrarApi(urlApi);
 
   data.forEach(async (element) => {
     const individualData = await mostrarApiPokemon(element);
     let imagenPokemon = individualData.sprites.front_default;
     //Agregar al slide
-    contenedorPokemon.insertAdjacentHTML("beforeend",
+    contenedorPokemon.insertAdjacentHTML(
+      "beforeend",
       /*html*/ `
       <div class="contenedor-pokemon" id= "${individualData.id}">
         <div class="contenedor-img">
@@ -29,7 +30,8 @@ export const slideSection = async (urlApi) => {
     );
     
     nuevoBotonPoke.addEventListener("click", async() => {
-      alertPokemon(individualData)
+      console.log(individualData.name)
+      alertPokemon(individualData.name)
     });
   });
 };

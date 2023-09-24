@@ -1,6 +1,7 @@
 
 // leera el .json
 export const mostrarApi = async (urlApi) => {
+  console.log(urlApi)
     try {
       const data = await (await fetch(urlApi)).json();
       return data.results;
