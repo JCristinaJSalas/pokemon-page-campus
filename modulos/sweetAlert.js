@@ -2,6 +2,7 @@ import { mostrarApi, mostrarApiPokemon } from "./apiFunctions.js";
 const myboton = document.querySelector("#pokemon");
 
 export const heroSection = async (urlApi) => {
+  console.log(urlApi)
   try {
     myboton.addEventListener("click", async () => {
       try {
