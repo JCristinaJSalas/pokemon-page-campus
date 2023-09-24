@@ -1,11 +1,9 @@
-import { mostrarApi , mostrarApiPokemon } from "./apiFunctions.js";
+import { mostrarApi, mostrarApiPokemon } from "./apiFunctions.js";
 const myboton = document.querySelector("#pokemon");
 
-export const heroSection = async(urlApi) => {
-    
+export const heroSection = async (urlApi) => {
   try {
     myboton.addEventListener("click", async () => {
-        console.log("click")
       try {
         const info = await mostrarApi(urlApi);
 
@@ -46,19 +44,18 @@ export const heroSection = async(urlApi) => {
 };
 
 const mostrarPokemon = async (element) => {
-    console.log(element);
-    let pokemonData = await mostrarApiPokemon(element);
-    let imagenPokemon = pokemonData.sprites.front_default;
-    element
-      ? Swal.fire({
-          title: "Sweet!",
-          text: `${element.name}`,
-          imageUrl: imagenPokemon,
-          imageWidth: 400,
-          imageHeight: 400,
-          imageAlt: "Custom image",
-          color: "#000",
-        })
-      : "";
-  };
-  
+  console.log(element);
+  let pokemonData = await mostrarApiPokemon(element);
+  let imagenPokemon = pokemonData.sprites.front_default;
+  element
+    ? Swal.fire({
+        title: "Sweet!",
+        text: `${element.name}`,
+        imageUrl: imagenPokemon,
+        imageWidth: 400,
+        imageHeight: 400,
+        imageAlt: "Custom image",
+        color: "#000",
+      })
+    : "";
+};

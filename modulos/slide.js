@@ -19,14 +19,13 @@ export const slideSection = async (urlApi) => {
         <div class="contenedor-titulo">
           <h3>${element.name.toUpperCase()}</h3>
         </div>
-        <button class = "boton-poke">Ver mas</button>
       </div>
       `
     );
 
 // Obtener el botón recién creado y agregar el evento click
     const nuevoBotonPoke = contenedorPokemon.querySelector(
-      `.contenedor-pokemon[id="${individualData.id}"] .boton-poke`
+      `.contenedor-pokemon[id="${individualData.id}"]`
     );
     
     nuevoBotonPoke.addEventListener("click", async() => {
