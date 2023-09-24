@@ -2,18 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+
     <link rel="icon" type="image/x-icon" href="/images/pokemon-icon.webp" />
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-    <title>Pokémon</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-material-ui@4/material-ui.css"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
     <script type="module" src="main.js" defer></script>
+    <title>Pokémon</title>
   </head>
   <body>
     <main>
@@ -24,16 +33,9 @@
     </main>
 
     <section class="slide">
-      <swiper-container
-        class="mySwiper"
-        pagination="true"
-        pagination-clickable="true"
-        slides-per-view="3"
-        space-between="30"
-        free-mode="true"
-        id="contenedor-images"
-      >
-      </swiper-container>
+      <div class="contenedor-pokemons" id="contenedor-images">
+      </div>
     </section>
+
   </body>
 </html>

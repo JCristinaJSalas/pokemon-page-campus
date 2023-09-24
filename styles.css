@@ -18,12 +18,22 @@ html {
   font-size: 14px;
   width: 100vw;
   height: auto;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.63),
+    rgba(0, 0, 0, 0.486)
+  ),
+  url(/images/pokemon-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 li,
 a {
   text-decoration: none;
   list-style-type: none;
 }
+
 button {
   width: auto;
   height: auto;
@@ -39,18 +49,8 @@ button {
 button:hover {
   box-shadow: 0px 0px 37px -10px #f4dc26;
 }
-
 main {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.63),
-      rgba(0, 0, 0, 0.486)
-    ),
-    url(/images/pokemon-background.jpg);
-  height: calc(100vh - 5px);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  height: calc(90vh - 65px);
 }
 .contenedor-hero {
   width: 70%;
@@ -76,39 +76,40 @@ main {
   height: auto;
   color: #000;
 }
-swiper-container {
+.contenedor-pokemons {
   width: 100%;
-  height: 100%;
-  margin: 0 auto;
   padding: 55px;
-  background: #000000;
-  border: 1px solid #000;
+  background: #00000067;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
-
-.swiper-slide {
+.contenedor-pokemon {
   text-align: center;
-  font-size: 18px;
-  width: 550px;
+  width: 200px;
+  font-size: 1rem;
+  background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #c94141;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 36px;
 }
-
-.swiper-slide img {
+.contenedor-pokemon h3{
+  width: 100%;
+  padding: 0 15px;
+}
+.contenedor-img{
+  width: 90%;
+  align-self: center;
+}
+.contenedor-pokemon img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.7)); 
-}
-.swiper-slide h3{
-  width: 100%;
-  padding: 10px 15px;
-}
-.contenedor-img{
-  width: 250px;
-  height: 250px;
-  align-self: center;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.788)); 
 }
