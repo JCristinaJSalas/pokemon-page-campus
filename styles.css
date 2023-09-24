@@ -69,7 +69,37 @@ button:hover {
   font-size: 1.8rem;
 }
 
-/* Estilos de los slide*/
+
+/* input de busqueda*/
+
+
+.busquedaSeccion{
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contenedor-busqueda{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 5px;
+  margin: 15px;
+}
+.contenedor-busqueda input{
+  padding: 15px;
+  width: 20%;
+  margin: 0 10px;
+  border: none;
+  border-radius: 12px;
+}
+.contenedor-busqueda label{
+  font-size: 1.5rem;
+}
+
+/* Estilos de los tabla*/
 
 .slide {
   width: 100vw;
@@ -87,7 +117,8 @@ button:hover {
 }
 .contenedor-pokemon {
   text-align: center;
-  width: 200px;
+  width: 150px;
+  height: 150px;
   background: #ffffff;
   display: flex;
   justify-content: center;
@@ -95,7 +126,7 @@ button:hover {
   flex-direction: column;
   padding: 10px 20px;
   margin: 10px;
-  border-radius: 36px;
+  border-radius: 30%;
 }
 .contenedor-pokemon h3{
   width: 100%;
