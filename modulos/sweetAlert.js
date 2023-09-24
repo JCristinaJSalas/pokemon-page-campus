@@ -49,7 +49,6 @@ const mostrarPokemon = async (element) => {
     console.log(element);
     let pokemonData = await mostrarApiPokemon(element);
     let imagenPokemon = pokemonData.sprites.front_default;
-    console.log("esta img",imagenPokemon)
     element
       ? Swal.fire({
           title: "Sweet!",
