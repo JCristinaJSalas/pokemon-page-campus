@@ -1,5 +1,4 @@
 export const simbolo = (tipoPoke) => {
-    console.log(tipoPoke[0]);
     let foto = "";
   
     switch (tipoPoke[0]) {
