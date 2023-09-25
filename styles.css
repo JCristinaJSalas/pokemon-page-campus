@@ -23,7 +23,7 @@ html {
       rgba(0, 0, 0, 0.63),
       rgba(0, 0, 0, 0.486)
     ),
-    url(/images/pokemon-background.jpg);
+    url('/images/pokemon-background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

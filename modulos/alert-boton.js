@@ -16,7 +16,8 @@ export const alertPokemon = async (info) => {
       (nombre) =>
         `<h4 class="tipo" style="${colorEstiloTipo}">${nombre.toUpperCase()}</h4>`
     );
-    const fotoTipo = simbolo(tipoPoke);
+    const fotoTipo = await simbolo(tipoPoke);
+    console.log(fotoTipo)
     Swal.fire({
       html: `
       <div class="contenedor-pokemon-alerta">
