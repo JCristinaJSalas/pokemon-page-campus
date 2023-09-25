@@ -68,7 +68,6 @@ main {
 .contenedor-hero p {
   font-size: 1.8rem;
 }
-
 /* input de busqueda*/
 .busquedaSeccion {
   width: 100%;
@@ -102,19 +101,23 @@ main {
 .slide {
   width: 100vw;
   height: auto;
+  background: #000000b0;
 }
 .contenedor-pokemons {
-  width: 100%;
-  padding: 25px;
-  background: #000000b0;
+  width: 90%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  gap: 20px;
+  margin: 0 auto;
 }
 .contenedor-pokemon {
   text-align: center;
   width: 160px;
+  max-width: 160px;
+  height: 174px;
+  max-height: 174px;
   background: transparent;
   border: 2px solid #ffffff;
   display: flex;
@@ -123,13 +126,12 @@ main {
   flex-direction: column;
   padding: 10px 20px 20px 20px;
   margin: 10px;
-  border-radius: 30%;
+  border-radius: 20px;
   transition: 0.5s all;
 }
 .contenedor-pokemon:hover {
-  border: 2px solid #f4dc26;
-  color: #f4dc26;
-  scale: 1.1;
+  transform: scale(1.1);
+  border: 2px solid ;
 }
 .contenedor-pokemon h3 {
   width: 100%;
@@ -172,8 +174,8 @@ main {
   align-items: center;
   justify-content: space-around;
 }
-.contenedor-tipo .tipo {
-  padding: 0 25px;
+.tipo {
+  padding: 15px;
 }
 .contenedor-titulo .titulo-alerta {
   font-size: 1.5rem;
@@ -195,7 +197,6 @@ main {
   min-width: 300px;
   padding: 55px 35px 35px;
   border-radius: 20px;
-  
 }
 .contenedor-img-alerta {
   position: absolute;
@@ -220,7 +221,6 @@ main {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-
 }
 
 .contenedor-titulo-alerta {
@@ -232,8 +232,6 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-
 }
 .contenedor-texto-alerta {
   display: flex;
@@ -267,6 +265,4 @@ main {
   width: 100%;
   height: 100%;
   object-fit: contain;
-
-
 }
