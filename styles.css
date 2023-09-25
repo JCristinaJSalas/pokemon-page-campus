@@ -95,6 +95,46 @@ main {
 .contenedor-busqueda label {
   font-size: 1.5rem;
 }
+/* estilos busqueda por nombre*/
+/*Busqueda*/
+.busqueda{
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 0.5px solid var(--botonColor);
+  flex-direction: column;
+  background-color: #000000;
+  
+}
+.input-container-busqueda {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 20px;
+}
+
+.input-container-busqueda input {
+  color: #fff;
+  height: 40px;
+  padding: 10px;
+  width: 50%;
+  margin: 10px 0;
+  font-family: var(--fontFamily);
+  border-radius: 15px;
+  border-radius: 10px;
+  border: 0.1px solid var(--botonColor);
+  margin-right: 5px;
+  background-color: var(--bcolor);
+}
+.input-container-busqueda input:focus , .input-container-busqueda input:active{
+  font-family: var(--fontFamily);
+  border-radius: 10px;
+  border: 0.1px solid #df0000;
+}
 
 /* Estilos de los tabla*/
 
