@@ -6,7 +6,6 @@ export const alertPokemon = async (info) => {
     const color = colorData.color.name;
     const colorEstilo = `color: ${color};border-bottom: 2px solid ${color}`;
     const colorEstiloTipo = `color: ${color};border: 2px solid ${color}; padding: 8px;margin:8px`;
-    const colorId = `bacground-color: ${color};`;
 
     let imagenPokemon = info.sprites.front_default;
     let peso = info.weight;
@@ -17,9 +16,7 @@ export const alertPokemon = async (info) => {
       (nombre) =>
         `<h4 class="tipo" style="${colorEstiloTipo}">${nombre.toUpperCase()}</h4>`
     );
-
     const fotoTipo = simbolo(tipoPoke);
-    console.log(fotoTipo);
     Swal.fire({
       html: `
       <div class="contenedor-pokemon-alerta">
@@ -50,8 +47,9 @@ export const alertPokemon = async (info) => {
       color: "#000",
       width: "390px",
     });
+
   } catch (error) {
     console.log("Error en la alerta", error);
   }
+  
 };
-
