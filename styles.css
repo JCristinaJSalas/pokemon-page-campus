@@ -19,11 +19,11 @@ html {
   width: 100vw;
   height: auto;
   background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.63),
-    rgba(0, 0, 0, 0.486)
-  ),
-  url(/images/pokemon-background.jpg);
+      to bottom,
+      rgba(0, 0, 0, 0.63),
+      rgba(0, 0, 0, 0.486)
+    ),
+    url(/images/pokemon-background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -37,7 +37,7 @@ a {
 button {
   width: auto;
   height: auto;
-  padding: 15px;
+  padding: 10px;
   font-family: var(--fontFamily);
   font-size: 1.2rem;
   background-color: var(--botonColor);
@@ -49,9 +49,9 @@ button {
 button:hover {
   box-shadow: 0px 0px 37px -10px #f4dc26;
 }
-/* main {
-  height: calc(90vh - 65px);
-} */
+main {
+  height: calc(50vh - 10px);
+}
 .contenedor-hero {
   width: 70%;
   margin: 0 auto;
@@ -69,18 +69,16 @@ button:hover {
   font-size: 1.8rem;
 }
 
-
 /* input de busqueda*/
-
-
-.busquedaSeccion{
-  width: 70%;
+.busquedaSeccion {
+  width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #000000b0;
 }
-.contenedor-busqueda{
+.contenedor-busqueda {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,14 +86,14 @@ button:hover {
   padding: 5px;
   margin: 15px;
 }
-.contenedor-busqueda input{
+.contenedor-busqueda input {
   padding: 15px;
   width: 20%;
   margin: 0 10px;
   border: none;
   border-radius: 12px;
 }
-.contenedor-busqueda label{
+.contenedor-busqueda label {
   font-size: 1.5rem;
 }
 
@@ -104,12 +102,11 @@ button:hover {
 .slide {
   width: 100vw;
   height: auto;
-  color: #000;
 }
 .contenedor-pokemons {
   width: 100%;
-  padding: 55px;
-  background: #00000067;
+  padding: 25px;
+  background: #000000b0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,34 +114,46 @@ button:hover {
 }
 .contenedor-pokemon {
   text-align: center;
-  width: 150px;
-  height: 150px;
-  background: #ffffff;
+  width: 160px;
+  background: transparent;
+  border: 2px solid #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 10px 20px;
+  padding: 10px 20px 20px 20px;
   margin: 10px;
   border-radius: 30%;
+  transition: 0.5s all;
 }
-.contenedor-pokemon h3{
+.contenedor-pokemon:hover {
+  border: 2px solid #f4dc26;
+  color: #f4dc26;
+  scale: 1.1;
+}
+.contenedor-pokemon h3 {
   width: 100%;
   padding: 0 15px;
   font-size: 1.2rem;
 }
-.contenedor-img{
+.contenedor-img {
   width: 100%;
   align-self: center;
 }
 .contenedor-pokemon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: drop-shadow(0 10px 15px rgba(255, 255, 255, 0.445));
+}
+.contenedor-pokemon img:hover {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.788)); 
+  filter: drop-shadow(0 10px 15px #f4dc26af);
 }
-.contenedor-texto{
+.contenedor-texto {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -154,18 +163,89 @@ button:hover {
   font-size: 1.3rem;
   text-align: left;
 }
-.contenedor-texto h5{
+.contenedor-texto h5 {
   width: 100%;
   padding: 5px;
 }
-.contenedor-tipo{
+.contenedor-tipo {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-.contenedor-tipo .tipo{
+.contenedor-tipo .tipo {
   padding: 0 25px;
 }
-.contenedor-titulo .titulo-alerta{
+.contenedor-titulo .titulo-alerta {
   font-size: 1.5rem;
+}
+/*Alerta ventana*/
+.swal2-popup {
+  background-color: transparent;
+}
+.swal2-container.swal2-backdrop-show,
+.swal2-container.swal2-noanimation {
+  background: rgba(0, 0, 0, 0.89);
+}
+.contenedor-pokemon-alerta {
+  height: auto;
+  background-color: #f2f0f0;
+  width: 90%;
+  margin: 0 10px;
+  margin-top: 95px;
+  min-width: 300px;
+  padding: 55px 35px 35px;
+  border-radius: 20px;
+  
+}
+.contenedor-img-alerta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+}
+.contenedor-img-alerta img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.854));
+}
+.circulo-id {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+}
+
+.contenedor-titulo-alerta {
+  text-align: center;
+  padding: 10px;
+  font-size: 1.8rem;
+}
+.contenedor-texto-alerta {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 25px 0;
+  color: #000000;
+}
+.contenedor-texto-alerta h5 {
+  font-size: 1.2rem;
+  padding: 5px;
+}
+.contenedor-texto-alerta .icono {
+  font-size: 2rem;
+  height: 45px;
+}
+.contenedor-tipo-alerta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 }
