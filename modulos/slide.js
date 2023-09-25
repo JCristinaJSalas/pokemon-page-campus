@@ -28,10 +28,8 @@ export const pokemonSection = async (urlApi) => {
     const nuevoBotonPoke = contenedorPokemon.querySelector(
       `.contenedor-pokemon[id="${individualData.id}"]`
     );
-    
     nuevoBotonPoke.addEventListener("click", async() => {
-      console.log(individualData.name)
-      alertPokemon(individualData.name)
+      alertPokemon(individualData)
     });
   });
 };
