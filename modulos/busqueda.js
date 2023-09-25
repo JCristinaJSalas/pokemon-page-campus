@@ -1,55 +1,47 @@
+import { pokemonSection } from "./slide.js";
+
 const inputBusqueda = document.querySelector("#busqueda");
 const resultadoTabla = document.querySelector(".contenedor-busqueda");
-//const iconoBusqueda = document.querySelector('box-icon[name="search"]');
-const palabras = document.querySelector("#mostrar_palabras")
+const palabras = document.querySelector("#mostrar_palabras");
+
 // Funcion para realizar la busqueda
 export const busqueda = async (url) => {
-  // evento co teclado"
-  inputBusqueda.addEventListener("keyup", (event) => {
-    if (event.key === "Enter") {
-      realizarBusqueda(url);
-    }
-  });
-  // evento con la lupa
-  //iconoBusqueda.addEventListener("click", () => {
-   // realizarBusqueda(url);
- // });
-  // para telefono
   inputBusqueda.addEventListener("input", () => {
     realizarBusqueda(url);
   });
 };
 
 // Funcion  busqueda
-const realizarBusqueda = async(url) => {
-    const terminoBusqueda = inputBusqueda.value.trim().toLowerCase();
-    const data = await (await fetch(url)).json();
-    const dataSimple = data.results.map(element => element).map((e) => e.name)
+const realizarBusqueda = async (url) => {
+  const terminoBusqueda = inputBusqueda.value.trim().toLowerCase();
+  const data = await (await fetch(url)).json();
+  const dataSimple = data.results.map((e) => e.name);
+  console.log("dataSimple",dataSimple);
 
-    const resultadosFiltrados = dataSimple.filter((item) =>
-        item.toLowerCase().includes(terminoBusqueda)
-    );
-    palabras.insertAdjacentHTML("beforeend", `
-        <ul>
-            <li>${resultadosFiltrados.map((e) => {
-              const texto = e
-            return texto
-            })}</li>
-        </ul>
-    ` )
-    console.log("click",resultadosFiltrados )
+  const resultadosFiltrados = dataSimple.filter((item) => item.toLowerCase().includes(terminoBusqueda));
+  console.log(resultadosFiltrados);
+  
 
 
-  // convertir la value a minuscula
+
+
+}
   /* 
-  
+  const mostrarResultados = (resultadosFiltrados) => {
+    
+    palabras.insertAdjacentHTML("beforeend", pokemonSection());
+  };
 
+  inputBusqueda.value === ""
+    ? (palabras.innerHTML = "")
+    : resultadosFiltrados.length === 0
+    ? (palabras.innerHTML = "No hay tiene conincidencia")
+    : mostrarResultados(resultadosFiltrados);
+};*/
 
-  
-
+/* 
   // Filtro de data convirtiendolo a minuscula
   
-  console.log(resultadosFiltrados)
   inputBusqueda.value === "" ? resultadoTabla.innerHTML = "" 
   : resultadosFiltrados.length === 0 ? resultadoTabla.innerHTML = "No hay tiene conincidencia" : (mostrarResultados(resultadosFiltrados));
 
@@ -87,5 +79,3 @@ const mostrarResultados = (resultadosFiltrados) => {
   });
   resultadoTabla.insertAdjacentHTML("beforeend", `</tbody>`);
 */
-
-};
