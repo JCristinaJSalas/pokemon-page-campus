@@ -1,3 +1,4 @@
+import { simbolo } from "./tipoPokemonImg.js";
 export const alertPokemon = async (info) => {
   try {
     let colorUrl = info.species.url;
@@ -17,11 +18,16 @@ export const alertPokemon = async (info) => {
         `<h4 class="tipo" style="${colorEstiloTipo}">${nombre.toUpperCase()}</h4>`
     );
 
-    simbolo(tipoPoke);
+    const fotoTipo = simbolo(tipoPoke);
+    console.log(fotoTipo);
     Swal.fire({
       html: `
       <div class="contenedor-pokemon-alerta">
-        <h4 class="circulo-id" style="${colorEstiloTipo}" >${info.id}</h4>
+        <div class="contenedor-logo">
+          <h4 class="circulo-id" style="${colorEstiloTipo}" >${info.id}</h4>
+          <div class="contenedor-foto"> ${fotoTipo}</div>
+        </div>
+        
         <div class="contenedor-info-alerta">
           <div class="contenedor-titulo-alerta">
             <h3 class="titulo-alerta" style="${colorEstilo}">${info.name.toUpperCase()}</h3>
@@ -49,10 +55,3 @@ export const alertPokemon = async (info) => {
   }
 };
 
-const simbolo = (tipoPoke) => {
-  console.log(tipoPoke[0]);
-  switch(tipoPoke[0]){
-    case "grass":
-      return 
-  }
-};
