@@ -22,15 +22,15 @@ export const leerMockapi = async (urlMockapi) => {
   return dataMockapi;
 };
 
-
-const escribirMockapi = async (urlMockApi,name,especificaciones) => {
+const escribirMockapi = async (urlMockApi, name, especificaciones) => {
   const newData = especificaciones.map((info) => {
     const base = info.base_stat;
     const name = info.stat.name;
     const objecto = { name, base };
+
     return objecto;
   });
-  const newDataPoke = {name, especificaciones:newData}
+  const newDataPoke = { name, especificaciones: newData };
   const config = {
     method: "POST",
     headers: {
@@ -41,14 +41,20 @@ const escribirMockapi = async (urlMockApi,name,especificaciones) => {
   await (await fetch(urlMockApi, config)).json();
 };
 
-
+export const guardarPoke = async (urlMockApi, name, especificaciones) => {
+  console.log(urlMockApi);
+  //const datos = await (await fetch(urlMockApi)).json();
+  console.log("nombre", name, "especificaciones", especificaciones);
+};
 
 export const evaluaMockapi = async (urlMockApi, name, especificaciones) => {
   const nameMockapi = (await leerMockapi(urlMockApi)).map((e) => e.name);
+
   nameMockapi.includes(name)
-    ? console.log("Ya esta, No se agrega")
+    ? console.log("Ya esta en Api")
     : escribirMockapi(urlMockApi, name, especificaciones);
+
+
+
+  
 };
-
-
-

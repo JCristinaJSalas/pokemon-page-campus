@@ -1,6 +1,7 @@
-import { evaluaMockapi } from "./apiFunctions.js";
+import { evaluaMockapi, guardarPoke } from "./apiFunctions.js";
 import { simbolo } from "./tipoPokemonImg.js";
-let color
+let color;
+let estatus
 export const alertPokemon = async (info) => {
   try {
     let colorUrl = info.species.url;
@@ -11,7 +12,7 @@ export const alertPokemon = async (info) => {
     const colorEstiloTipo = `color: ${color}; border: 2px solid ${color}; padding: 8px; margin: 8px`;
 
     let imagenPokemon = info.sprites.front_default;
-    let estatus = info.stats;
+    estatus = info.stats;
     let experiencia = info.base_experience;
     let tipoPoke = info.types.map((i) => i.type).map((tipo) => tipo.name);
     let tipoTexto = tipoPoke.map(
@@ -19,6 +20,8 @@ export const alertPokemon = async (info) => {
         `<h4 class="tipo" style="${colorEstiloTipo}">${nombre.toUpperCase()}</h4>`
     );
     const fotoTipo = simbolo(tipoPoke);
+
+    //const datosMockapi = guardarPoke(console.log("click"));
 
     Swal.fire({
       html: `
@@ -58,13 +61,14 @@ export const alertPokemon = async (info) => {
         <div class="contenedor-img-alerta">
           <img src="${imagenPokemon}" alt="Pokemon ${info.name}" />
         </div>
+        <input id="guardar" type="submit" value="Guardar" />
       </div>
      
       `,
       color: "#000",
-      width: "390px", 
-      confirmButtonText: 'Guardar',
-      cancelButtonText: 'x',
+      width: "390px",
+      confirmButtonText: "Guardar",
+      cancelButtonText: "x",
       showCancelButton: true,
       showCloseButton: true,
       cancelButtonColor: `${color}`,
@@ -76,18 +80,33 @@ export const alertPokemon = async (info) => {
     });
     const name = info.name;
     const urlMockApi = "https://6509ed8cf6553137159c442b.mockapi.io/pokemonAPI";
+    
     const especificaciones = estatus;
-
-    evaluaMockapi(urlMockApi,name,especificaciones);
+    console.log("esp",especificaciones)
+    evaluaMockapi(urlMockApi, name, especificaciones);
   } catch (error) {
     console.log("Error en la alerta", error);
   }
-
+const arrayDatos = []
+const objeto ={}
   document.addEventListener("input", (e) => {
     if (e.target.matches(".rango")) {
       const statName = e.target.dataset.stat;
       const label = document.querySelector(`#${statName}`);
       label.innerText = `${e.target.value}/150`;
+      objeto = {
+        statName : e.target.value
+      }
+      arrayDatos.push(objeto)
+    }
+
+  });
+
+  document.addEventListener("submit", (e) => {
+    if (e.target.matches("#guardar")){
+      
+      console.log("click",arrayDatos);
+      //guardarPoke(urlMockApi, name, label);
     }
   });
 };
