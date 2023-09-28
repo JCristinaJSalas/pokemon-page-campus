@@ -41,3 +41,9 @@ fontFamily: "Inclusive Sans", sans-serif;
 
 <h4>Filter by Name</h4>
 <div align="center"><img src="imagenes/../images/Screenshot%20from%202023-09-28%2011-52-52.png" alt="NAV" style="width: 300px;" /></div>
+
+
+### Browsers compatible
+
+- Google Chrome
+- !be awair for the others browsers
