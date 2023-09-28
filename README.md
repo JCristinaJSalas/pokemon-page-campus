@@ -31,6 +31,13 @@ Font Color > depend on pokemon's color palette
 fontFamily: "Inclusive Sans", sans-serif;
 
 
-## Designs
+## Design
+<h4>Home Page</h4>
+<div align="center"><img src="imagenes/../images/Screenshot%20from%202023-09-28%2011-46-10.png" alt="NAV" style="width: 300px;" /></div>
 
-<div align="center"><img src="imagenes/../images/Screenshot%20from%202023-09-28%2011-46-10.png" alt="NAV" style="width: 150px;" /></div>
+<h4>Filter by Limit</h4>
+<div align="center"><img src="imagenes/../images/Screenshot%20from%202023-09-28%2011-49-44.png" alt="NAV" style="width: 300px;" /></div>
+
+
+<h4>Filter by Name</h4>
+<div align="center"><img src="imagenes/../images/Screenshot%20from%202023-09-28%2011-52-52.png" alt="NAV" style="width: 300px;" /></div>
