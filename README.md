@@ -43,6 +43,11 @@ fontFamily: "Inclusive Sans", sans-serif;
 <div align="center"><img src="imagenes/../images/Screenshot%20from%202023-09-28%2011-52-52.png" alt="NAV" style="width: 300px;" /></div>
 
 
+### Urls
+- url = https://pokeapi.co/api/v2/pokemon
+- urlApi = https://pokeapi.co/api/v2/pokemon?limit=
+- urlMockapi = https://6509ed8cf6553137159c442b.mockapi.io/pokemonAPI
+
 ### Browsers compatible
 
 - Google Chrome
