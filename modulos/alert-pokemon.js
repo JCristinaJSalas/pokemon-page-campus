@@ -1,7 +1,9 @@
 import { evaluaMockapi, guardarPoke } from "./apiFunctions.js";
 import { simbolo } from "./tipoPokemonImg.js";
 let color;
-let estatus
+let estatus;
+let name, identificador;
+const urlMockApi = "https://6509ed8cf6553137159c442b.mockapi.io/pokemonAPI";
 export const alertPokemon = async (info) => {
   try {
     let colorUrl = info.species.url;
@@ -20,9 +22,6 @@ export const alertPokemon = async (info) => {
         `<h4 class="tipo" style="${colorEstiloTipo}">${nombre.toUpperCase()}</h4>`
     );
     const fotoTipo = simbolo(tipoPoke);
-
-    //const datosMockapi = guardarPoke(console.log("click"));
-
     Swal.fire({
       html: `
       <style>
@@ -67,46 +66,40 @@ export const alertPokemon = async (info) => {
       `,
       color: "#000",
       width: "390px",
-      confirmButtonText: "Guardar",
-      cancelButtonText: "x",
-      showCancelButton: true,
-      showCloseButton: true,
+      showCancelButton: false,
+      showCloseButton: false,
       cancelButtonColor: `${color}`,
     });
-
     const inputRanges = document.querySelectorAll(".rango");
     inputRanges.forEach((inputRange) => {
       inputRange.style.background = color;
     });
-    const name = info.name;
-    const urlMockApi = "https://6509ed8cf6553137159c442b.mockapi.io/pokemonAPI";
-    
+    name = info.name;
+    identificador = info.id;
     const especificaciones = estatus;
-    console.log("esp",especificaciones)
     evaluaMockapi(urlMockApi, name, especificaciones);
   } catch (error) {
     console.log("Error en la alerta", error);
   }
-const arrayDatos = []
-const objeto ={}
+  var objeto = new Object();
+  const botonGu = document.querySelector("#guardar")
+
   document.addEventListener("input", (e) => {
     if (e.target.matches(".rango")) {
-      const statName = e.target.dataset.stat;
+      let statName = e.target.dataset.stat;
       const label = document.querySelector(`#${statName}`);
       label.innerText = `${e.target.value}/150`;
-      objeto = {
-        statName : e.target.value
-      }
-      arrayDatos.push(objeto)
-    }
 
-  });
 
-  document.addEventListener("submit", (e) => {
-    if (e.target.matches("#guardar")){
+      const valor = `${e.target.value}/150`;
+      objeto.name = statName;
+      objeto.base = valor;
       
-      console.log("click",arrayDatos);
-      //guardarPoke(urlMockApi, name, label);
-    }
+    } 
   });
+  botonGu.addEventListener('click',() => {
+        guardarPoke(urlMockApi, objeto,name);
+      })
+
+
 };
