@@ -13,7 +13,7 @@ const urlApi = "https://pokeapi.co/api/v2/pokemon?limit=";
 addEventListener("DOMContentLoaded", () => {
   const urlApiLimit = urlApi + num.value;
   mostrarTarjeta(urlApiLimit);
-  const allPoke = urlApi + 50;
+  const allPoke = urlApi + 1350;
   busqueda(urlApiLimit, allPoke);
 
   // busqueda(url)
