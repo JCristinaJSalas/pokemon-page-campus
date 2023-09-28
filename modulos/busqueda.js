@@ -1,13 +1,13 @@
-import { pokemonSection } from "./PokeSeccion";
+import { alertPokemon } from "./alert-pokemon.js";
+import { mostrarTarjeta } from "./mostrarTarjeta.js";
 
+const contenedorPokemon = document.querySelector(".contenedor-pokemons");
 const inputBusqueda = document.querySelector("#busqueda");
-const resultadoTabla = document.querySelector(".contenedor-busqueda");
-const palabras = document.querySelector("#mostrar_palabras");
-
 // Funcion para realizar la busqueda
-export const busqueda = async (url) => {
-  inputBusqueda.addEventListener("input", () => {
-    realizarBusqueda(url);
+export const busqueda = async (urlApiLimit, allPoke) => {
+  inputBusqueda.addEventListener("input", (e) => {
+    const target = e.target.value;
+    target === "" ? mostrarTarjeta(urlApiLimit) : realizarBusqueda(allPoke);
   });
 };
 
@@ -15,62 +15,42 @@ export const busqueda = async (url) => {
 const realizarBusqueda = async (url) => {
   const terminoBusqueda = inputBusqueda.value.trim().toLowerCase();
   const data = await (await fetch(url)).json();
-  const dataSimple = data.results.map((e) => e.name);
-  console.log("dataSimple",dataSimple);
 
-  const resultadosFiltrados = dataSimple.filter((item) => item.toLowerCase().includes(terminoBusqueda));
-  console.log(resultadosFiltrados);
-} 
-  /* 
-  const mostrarResultados = (resultadosFiltrados) => {
-    
-    palabras.insertAdjacentHTML("beforeend", pokemonSection());
-  };
-
-  inputBusqueda.value === ""
-    ? (palabras.innerHTML = "")
-    : resultadosFiltrados.length === 0
-    ? (palabras.innerHTML = "No hay tiene conincidencia")
-    : mostrarResultados(resultadosFiltrados);
-};*/
-
-/* 
-  // Filtro de data convirtiendolo a minuscula
-  
-  inputBusqueda.value === "" ? resultadoTabla.innerHTML = "" 
-  : resultadosFiltrados.length === 0 ? resultadoTabla.innerHTML = "No hay tiene conincidencia" : (mostrarResultados(resultadosFiltrados));
-
+  //dataSimple son los 1292 pokemons
+  const dataSimple = await data.results.map((e) => e.name);
+  const resultadosFiltrados = dataSimple.filter((item) =>
+    item.toLowerCase().includes(terminoBusqueda)
+  );
+  resultadosFiltrados.map(async (i) => {
+    data.results.map((e) => {
+      i === e.name ? mostrarTarjetaFiltrada(e.url) : " ";
+    });
+  });
 };
 
-// mostrar los resultados en la tabla
-const mostrarResultados = (resultadosFiltrados) => {
-  
-  resultadoTabla.innerHTML = "";
-  resultadoTabla.insertAdjacentHTML(
-    "beforeend",
-    /*html `
-      <thead>
-          <tr class="titulo">
-              <td>Descripcion</td>
-              <td>Tipo</td>
-              <td>Valor (COP)</td>
-          </tr>
-      </thead>
-      <tbody>
-    `
-  );
-   resultadosFiltrados.forEach((resultado) => {
-    
-    resultadoTabla.insertAdjacentHTML(
-      "beforeend",
-       `
-          <tr>
-              <td>${resultado.descripcion}</td>
-              <td>${resultado.eleccion}</td>
-              <td>$ ${parseFloat(resultado.monto).toLocaleString("es-ES")}</td>
-          </tr>
-        `
-    );
+const mostrarTarjetaFiltrada = async (url) => {
+  contenedorPokemon.innerHTML = "";
+  const individualData = await (await fetch(url)).json();
+  let imagenPokemon = individualData.sprites.front_default;
+  const urlColor = await (await fetch(individualData.species.url)).json();
+  const color = urlColor.color.name;
+  const estiloCaja = `color: ${color};border: 1.5px solid ${color};`;
+  //contenedorPokemon.innerHTML = "";
+  const contenedor = document.createElement("div");
+
+  contenedor.className = "contenedor-pokemon";
+  contenedor.id = individualData.id;
+  contenedor.style.cssText = estiloCaja;
+  contenedor.innerHTML = `
+    <div class="contenedor-img">
+      <img src="${imagenPokemon}" alt="Pokemon ${individualData.name}" />
+    </div>
+    <div class="contenedor-titulo">
+      <h3>${individualData.name.toUpperCase()}</h3>
+    </div>
+  `;
+  contenedorPokemon.appendChild(contenedor);
+  contenedor.addEventListener("click", async () => {
+    alertPokemon(individualData);
   });
-  resultadoTabla.insertAdjacentHTML("beforeend", `</tbody>`);
-*/
+};
