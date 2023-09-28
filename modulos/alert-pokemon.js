@@ -5,9 +5,9 @@ export const alertPokemon = async (info) => {
     const colorData = await (await fetch(colorUrl)).json();
     const color = colorData.color.name;
     console.log("info", color);
-    //objetos de estilos
-    const colorEstilo = `color: ${color};border-bottom: 2px solid ${color}`;
-    const colorEstiloTipo = `color: ${color};border: 2px solid ${color}; padding: 8px;margin:8px`;
+    // objetos de estilos
+    const colorEstilo = `color: ${color}; border-bottom: 2px solid ${color}`;
+    const colorEstiloTipo = `color: ${color}; border: 2px solid ${color}; padding: 8px; margin: 8px`;
 
     let imagenPokemon = info.sprites.front_default;
     let peso = info.weight;
@@ -24,26 +24,25 @@ export const alertPokemon = async (info) => {
       html: `
       <div class="contenedor-pokemon-alerta">
         <div class="contenedor-logo">
-          <h4 class="circulo-id" style="${colorEstiloTipo}" >${info.id}</h4>
-          <div class="contenedor-foto"> ${fotoTipo}</div>
+          <h4 class="circulo-id" style="${colorEstiloTipo}">${info.id}</h4>
+          <div class="contenedor-foto">${fotoTipo}</div>
         </div>
         
         <div class="contenedor-info-alerta">
           <div class="contenedor-titulo-alerta">
             <h3 class="titulo-alerta" style="${colorEstilo}">${info.name.toUpperCase()}</h3>
-            <h5><i class='bx bx-bar-chart icono'></i> ${experiencia}HP</h5>
+            <h5><i class='bx bx-bar-chart icono'></i> ${experiencia} HP</h5>
           </div>
 
-          <div class="contenedor-texto-alerta" }>
-            
+          <div class="contenedor-texto-alerta">
             <h5><i class='bx bx-bug icono'></i> ${peso}</h5>
             <h5><i class='bx bx-vertical-top icono'></i> ${altura}</h5>
-          </div><hr>
-          <div class="contenedor-tipo-alerta" "> ${tipoTexto}</div>
+          </div>
+          <hr>
+          <div class="contenedor-tipo-alerta">${tipoTexto.join('')}</div>
         </div>
         <div class="contenedor-img-alerta">
           <img src="${imagenPokemon}" alt="Pokemon ${info.name}" />
-          
         </div>
       </div>
       `,
