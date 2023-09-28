@@ -1,3 +1,4 @@
+import { evaluaMockapi } from "./apiFunctions.js";
 import { simbolo } from "./tipoPokemonImg.js";
 
 export const alertPokemon = async (info) => {
@@ -58,15 +59,25 @@ export const alertPokemon = async (info) => {
           <img src="${imagenPokemon}" alt="Pokemon ${info.name}" />
         </div>
       </div>
+     
       `,
       color: "#000",
-      width: "390px",
+      width: "390px", 
+      confirmButtonText: 'Guardar',
+      cancelButtonText: 'x',
+      showCancelButton: true,
+      showCloseButton: true
     });
 
     const inputRanges = document.querySelectorAll(".rango");
     inputRanges.forEach((inputRange) => {
-      inputRange.style.background = color; 
+      inputRange.style.background = color;
     });
+    const name = info.name;
+    const urlMockApi = "https://6509ed8cf6553137159c442b.mockapi.io/pokemonAPI";
+    const especificaciones = estatus;
+
+    evaluaMockapi(urlMockApi,name,especificaciones);
   } catch (error) {
     console.log("Error en la alerta", error);
   }
