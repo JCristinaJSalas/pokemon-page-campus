@@ -60,7 +60,7 @@ export const alertPokemon = async (info) => {
         <div class="contenedor-img-alerta">
           <img src="${imagenPokemon}" alt="Pokemon ${info.name}" />
         </div>
-        <input id="guardar" type="submit" value="Guardar" />
+        <input id="guardar" type="submit" value="Guardar" class="button"/>
       </div>
      
       `,
