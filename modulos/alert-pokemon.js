@@ -1,11 +1,11 @@
 import { evaluaMockapi } from "./apiFunctions.js";
 import { simbolo } from "./tipoPokemonImg.js";
-
+let color
 export const alertPokemon = async (info) => {
   try {
     let colorUrl = info.species.url;
     const colorData = await (await fetch(colorUrl)).json();
-    const color = colorData.color.name;
+    color = colorData.color.name;
     // objetos de estilos
     const colorEstilo = `color: ${color}; border-bottom: 2px solid ${color}`;
     const colorEstiloTipo = `color: ${color}; border: 2px solid ${color}; padding: 8px; margin: 8px`;
@@ -66,7 +66,8 @@ export const alertPokemon = async (info) => {
       confirmButtonText: 'Guardar',
       cancelButtonText: 'x',
       showCancelButton: true,
-      showCloseButton: true
+      showCloseButton: true,
+      cancelButtonColor: `${color}`,
     });
 
     const inputRanges = document.querySelectorAll(".rango");

@@ -16,7 +16,7 @@ addEventListener("DOMContentLoaded", () => {
   mostrarTarjeta(urlApiLimit)
  // busqueda(url)
 
- /*  num.addEventListener("keydown", async (e) => {
+ num.addEventListener("keydown", async (e) => {
     contenedorPokemon.innerHTML = "";
     if (e.key === "Enter") {
       const urlApiLimit = urlApi + num.value;
@@ -29,5 +29,5 @@ addEventListener("DOMContentLoaded", () => {
     const urlApiLimit = urlApi + num.value;
     await mostrarTarjeta(urlApiLimit)
    // await busqueda(url)
-  }); */
+  }); 
 });
