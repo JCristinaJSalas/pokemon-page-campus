@@ -1,0 +1,1 @@
+# Educational website for interacturing with an API and MockAPI
