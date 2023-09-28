@@ -1,7 +1,7 @@
 // leera el .json
-export const mostrarApi = async (urlApi) => {
+export const mostrarApi = async (urlApiLimit) => {
     try {
-      const data = await (await fetch(urlApi)).json();
+      const data = await (await fetch(urlApiLimit)).json();
       return data.results;
     } catch (error) {
       console.log("No se cargo la API", error);
