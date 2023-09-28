@@ -1,4 +1,4 @@
-import { pokemonSection } from "./slide.js";
+import { pokemonSection } from "./PokeSeccion";
 
 const inputBusqueda = document.querySelector("#busqueda");
 const resultadoTabla = document.querySelector(".contenedor-busqueda");
@@ -20,12 +20,7 @@ const realizarBusqueda = async (url) => {
 
   const resultadosFiltrados = dataSimple.filter((item) => item.toLowerCase().includes(terminoBusqueda));
   console.log(resultadosFiltrados);
-  
-
-
-
-
-}
+} 
   /* 
   const mostrarResultados = (resultadosFiltrados) => {
     
