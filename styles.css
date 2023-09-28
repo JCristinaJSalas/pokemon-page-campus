@@ -219,7 +219,7 @@ main {
   width: 90%;
   margin-top: 95px;
   min-width: 300px;
-  padding: 55px 35px 35px;
+  padding: 30px 16px 15px;
   border-radius: 20px;
 }
 
@@ -263,12 +263,20 @@ main {
 }
 
 /*Contenedor texto alerta*/
+.rango::-webkit-slider-runnable-track {
+  background-color: #00000072;
+}
 .contenedor-texto-alerta {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 25px 0;
+  flex-direction: column;
   color: #000000;
+  gap: 5px;
+}
+.contenedor-texto-alerta .container{
+margin: 5px 0;
+
 }
 .contenedor-texto-alerta h5 {
   font-size: 1.2rem;
@@ -278,6 +286,7 @@ main {
   font-size: 2rem;
   height: 45px;
 }
+
 
 /*Contenedor imagen*/
 .contenedor-img-alerta {
