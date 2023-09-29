@@ -34,20 +34,20 @@ fontFamily: "Inclusive Sans", sans-serif;
 ## Design
 <h4>Home Page</h4>
 <p>You can enjo my website and feel free to play with. </p>
-<div align="center"><img src="imagenes/../images/home.PNG" alt="NAV" style="height: 300px;" /></div>
+<div align="center"><img src="imagenes/../images/home.PNG" alt="NAV" style="height: 650px;" /></div>
 
 <h4>Filter by Limit</h4>
 <p>The filter view. One of the filters works by number. You enter a number and It's going to show the pokemons from 0 until the number.</p>
-<div align="center"><img src="imagenes/../images/filtro-number.PNG" alt="NAV" style="height: 300px;" /></div>
+<div align="center"><img src="imagenes/../images/filtro-number.PNG" alt="NAV" style="height: 650px;" /></div>
 
 
 <h4>Filter by Name</h4>
 <p>Another way to filter the searching mode is by name. Be free, you will going to see whatever pokemon with some of letters.</p>
-<div align="center"><img src="imagenes/../images/filtro-palabra.PNG" alt="NAV" style="height: 300px;" /></div>
+<div align="center"><img src="imagenes/../images/filtro-palabra.PNG" alt="NAV" style="height: 650px;" /></div>
 
 <h4>Card</h4>
 <p>The card is going to play it, feel free to move the radio and put or take off exp for the pokemon</p>
-<div align="center"><img src="imagenes/../images/tarjeta.PNG" alt="NAV" style="height: 300px;" /></div>
+<div align="center"><img src="imagenes/../images/tarjeta.PNG" alt="NAV" style="height: 650px;" /></div>
 
 
 ### Urls- url = https://pokeapi.co/api/v2/pokemon
