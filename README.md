@@ -33,18 +33,24 @@ fontFamily: "Inclusive Sans", sans-serif;
 
 ## Design
 <h4>Home Page</h4>
-<div align="center"><img src="imagenes/../images/Screenshot%20from%202023-09-28%2011-46-10.png" alt="NAV" style="width: 300px;" /></div>
+<p>You can enjo my website and feel free to play with. </p>
+<div align="center"><img src="imagenes/../images/home.PNG" alt="NAV" style="height: 300px;" /></div>
 
 <h4>Filter by Limit</h4>
-<div align="center"><img src="imagenes/../images/Screenshot%20from%202023-09-28%2011-49-44.png" alt="NAV" style="width: 300px;" /></div>
+<p>The filter view. One of the filters works by number. You enter a number and It's going to show the pokemons from 0 until the number.</p>
+<div align="center"><img src="imagenes/../images/filtro-number.PNG" alt="NAV" style="height: 300px;" /></div>
 
 
 <h4>Filter by Name</h4>
-<div align="center"><img src="imagenes/../images/Screenshot%20from%202023-09-28%2011-52-52.png" alt="NAV" style="width: 300px;" /></div>
+<p>Another way to filter the searching mode is by name. Be free, you will going to see whatever pokemon with some of letters.</p>
+<div align="center"><img src="imagenes/../images/filtro-palabra.PNG" alt="NAV" style="height: 300px;" /></div>
+
+<h4>Card</h4>
+<p>The card is going to play it, feel free to move the radio and put or take off exp for the pokemon</p>
+<div align="center"><img src="imagenes/../images/tarjeta.PNG" alt="NAV" style="height: 300px;" /></div>
 
 
-### Urls
-- url = https://pokeapi.co/api/v2/pokemon
+### Urls- url = https://pokeapi.co/api/v2/pokemon
 - urlApi = https://pokeapi.co/api/v2/pokemon?limit=
 - urlMockapi = https://6509ed8cf6553137159c442b.mockapi.io/pokemonAPI
 
