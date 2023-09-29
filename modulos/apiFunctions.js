@@ -22,15 +22,11 @@ export const leerMockapi = async (urlMockapi) => {
   return dataMockapi;
 };
 
-const escribirMockapi = async (
-  urlMockApi,
-  name,
-  especificaciones
-) => {
+const escribirMockapi = async (urlMockApi, name, especificaciones) => {
   const newData = especificaciones.map((info) => {
     const base = info.base_stat;
     const name = info.stat.name;
-    const objecto = { name, base};
+    const objecto = { name, base };
 
     return objecto;
   });
@@ -44,17 +40,15 @@ const escribirMockapi = async (
   };
   await (await fetch(urlMockApi, config)).json();
 };
-let identificador
+let identificador;
 
-export const guardarPoke = async (urlMockApi, objeto, name) => {
-
-  const newPoke = { name, especificaciones: objeto };
-  const recorrerMockApi = await (await fetch(urlMockApi)).json()
-  recorrerMockApi.map((info) =>{
-    identificador =info.id
-  })
-  console.log(identificador)
-
+export const guardarPoke = async (urlMockApi, newEspecificaciones, name) => {
+  console.log('click', name)
+  const newPoke = { name, especificaciones: newEspecificaciones };
+  const recorrerMockApi = await (await fetch(urlMockApi)).json();
+  recorrerMockApi.map((info) => {
+    identificador = info.id;
+  });
   const config = {
     method: "PUT",
     headers: {
@@ -62,19 +56,15 @@ export const guardarPoke = async (urlMockApi, objeto, name) => {
     },
     body: JSON.stringify(newPoke),
   };
-
   const res = await (
     await fetch(urlMockApi + "/" + identificador, config)
   ).json();
-  console.log(res);
 };
-
-
 
 export const evaluaMockapi = async (urlMockApi, name, especificaciones) => {
   const nameMockapi = (await leerMockapi(urlMockApi)).map((e) => e.name);
 
   nameMockapi.includes(name)
-    ? console.log("Ya esta en Api")
+    ? console.log("Ya esta en la Api")
     : await escribirMockapi(urlMockApi, name, especificaciones);
 };
