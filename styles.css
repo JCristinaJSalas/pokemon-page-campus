@@ -58,13 +58,14 @@ button:hover {
   font-family: var(--fontFamily);
   font-size: 1.2rem;
   background-color: rgba(21, 140, 176, 0.903);
-  border-radius: 16px;
-  box-shadow: 7px 6px 16px -4px rgba(58, 179, 42, 0.694);
+  border-radius: 35%;
+  box-shadow: 0px 0px 27px 5px #58d464;
   border: none;
   transition: 0.5s all;
 }
 .button:hover {
-  box-shadow: 0px 0px 27px 5px #58d464;
+  
+  box-shadow: 7px 6px 16px -4px rgba(58, 179, 42, 0.694);
 }
 main {
   padding: 40px 0;

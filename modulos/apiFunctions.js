@@ -43,7 +43,6 @@ const escribirMockapi = async (urlMockApi, name, especificaciones) => {
 let identificador;
 
 export const guardarPoke = async (urlMockApi, newEspecificaciones, name) => {
-  console.log('click', name)
   const newPoke = { name, especificaciones: newEspecificaciones };
   const recorrerMockApi = await (await fetch(urlMockApi)).json();
   recorrerMockApi.map((info) => {
@@ -65,6 +64,6 @@ export const evaluaMockapi = async (urlMockApi, name, especificaciones) => {
   const nameMockapi = (await leerMockapi(urlMockApi)).map((e) => e.name);
 
   nameMockapi.includes(name)
-    ? console.log("Ya esta en la Api")
+    ? ""
     : await escribirMockapi(urlMockApi, name, especificaciones);
 };

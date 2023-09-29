@@ -3,13 +3,15 @@ import { simbolo } from "./tipoPokemonImg.js";
 let color,
   estatus,
   name,
-  identificador,
   colorUrl,
   imagenPokemon,
   experiencia,
   tipoPoke,
   tipoTexto,
-  statName,nombrePoke=[], nuevaEspacificacion;
+  statName,
+  nombrePoke = [],
+  nuevaEspacificacion,
+  nombre;
 
 const urlMockApi = "https://6509ed8cf6553137159c442b.mockapi.io/pokemonAPI";
 
@@ -17,10 +19,7 @@ export const alertPokemon = async (info) => {
   try {
     const inputRanges = document.querySelectorAll(".rango");
     name = info.name;
-    identificador = info.id;
-
     colorUrl = info.species.url;
-
     const colorData = await (await fetch(colorUrl)).json();
     color = colorData.color.name;
     // objetos de estilos
@@ -30,7 +29,8 @@ export const alertPokemon = async (info) => {
     inputRanges.forEach((inputRange) => {
       inputRange.style.background = color;
     });
-
+    
+    nombre = info.name;
     imagenPokemon = info.sprites.front_default;
     estatus = info.stats;
     experiencia = info.base_experience;
@@ -43,8 +43,10 @@ export const alertPokemon = async (info) => {
     //Alerta
     const nameMockapi = await leerMockapi(urlMockApi);
     nombrePoke = nameMockapi.map((e) => e.name);
-    nuevaEspacificacion = nameMockapi.find((e) => e.name === info.name)?.especificaciones;
-
+    nuevaEspacificacion = nameMockapi.find(
+      (e) => e.name === info.name
+    )?.especificaciones;
+   
     Swal.fire({
       html: `
       <style>
@@ -60,27 +62,51 @@ export const alertPokemon = async (info) => {
         
         <div class="contenedor-info-alerta">
           <div class="contenedor-titulo-alerta">
-            <h3 class="titulo-alerta" style="${colorEstilo}">${info.name.toUpperCase()}</h3>
+            <h3 class="titulo-alerta" style="${colorEstilo}">${nombre.toUpperCase()}</h3>
             <h5><i class='bx bx-bar-chart icono'></i> ${experiencia} EXP</h5>
           </div>
           <div class="contenedor-tipo-alerta">${tipoTexto.join("")}</div>
 
           <form class="contenedor-texto-alerta ${info.name}" id="form-mockapi">
-            ${estatus
-              .map(
-                (e) => /*html*/ `
-              <div class="container">
-                <h4>${e.stat.name}</h4>
-                <input class="rango" type="range" data-stat="${e.stat.name}" name="${e.name}" value="${e.base_stat}" max="200" min="0" />
-                
-                <label class="stats-poke" data-stat="${e.stat.name}" id="${e.stat.name}"> ${e.base_stat}/200</label>
-
-              </div>`
-              )
-              .join("")}
-              <input id="guardar" type="submit" value="Guardar" class="button"/>
+            ${
+              nombrePoke.includes(nombre)
+                ? nuevaEspacificacion
+                  ? nuevaEspacificacion
+                      .map(
+                        (stat) => /*html*/ `
+                        <div class="container">
+                          <h4>${stat.name}</h4>
+                          <input class="rango" type="range" data-stat="${stat.name}" name="${stat.name}" value="${stat.base}" max="200" min="0" />
+                          <label class="stats-poke" data-stat="${stat.name}" id="${stat.name}">${stat.base}/200</label>
+                        </div>
+                      `
+                      )
+                      .join("")
+                  : estatus
+                      .map(
+                        (stat) => /*html*/ `
+                        <div class="container">
+                          <h4>${stat.stat.name}</h4>
+                          <input class="rango" type="range" data-stat="${stat.stat.name}" name="${stat.name}" value="${stat.base_stat}" max="200" min="0" />
+                          <label class="stats-poke" data-stat="${stat.stat.name}" id="${stat.stat.name}">${stat.base_stat}/200</label>
+                        </div>
+                      `
+                      )
+                      .join("")
+                : estatus
+                    .map(
+                      (stat) => /*html*/ `
+                      <div class="container">
+                        <h4>${stat.stat.name}</h4>
+                        <input class="rango" type="range" data-stat="${stat.stat.name}" name="${stat.name}" value="${stat.base_stat}" max="200" min="0" />
+                        <label class="stats-poke" data-stat="${stat.stat.name}" id="${stat.stat.name}">${stat.base_stat}/200</label>
+                      </div>
+                    `
+                    )
+                    .join("")
+            }
+            
           </form>
-          
         </div>
         <div class="contenedor-img-alerta">
           <img src="${imagenPokemon}" alt="Pokemon ${info.name}" />
@@ -91,8 +117,17 @@ export const alertPokemon = async (info) => {
       color: "#000",
       width: "390px",
       showCancelButton: false,
-      showCloseButton: false,
-      cancelButtonColor: `${color}`,
+      confirmButtonText: "Guardar",
+      confirmButtonColor: `${color}`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let inputs = document.querySelectorAll(".rango");
+        let newEspecificaciones = Array.from(inputs).map((input) => ({
+          name: input.dataset.stat,
+          base: parseInt(input.value),
+        }));
+        guardarPoke(urlMockApi, newEspecificaciones, name);
+      }
     });
 
     //evalua si esta en la Mockapi
@@ -107,23 +142,7 @@ export const alertPokemon = async (info) => {
         label.innerText = `${e.target.value}/200`;
       }
     });
-
-   
   } catch (error) {
     console.log("Error en la alerta", error);
   }
-
-  document.addEventListener("click", async (e) => {
-    e.preventDefault()
-    if (e.target.matches("#guardar")) {
-      let inputs = document.querySelectorAll(".rango");
-
-      let newEspecificaciones = Array.from(inputs).map((input) => ({
-        name: input.dataset.stat,
-        base: parseInt(input.value),
-      }));
-      
-      guardarPoke(urlMockApi, newEspecificaciones, name);
-    }
-  });
 };
