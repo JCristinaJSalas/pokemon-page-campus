@@ -23,12 +23,38 @@
   </head>
 
   <body>
-    <main>
-      <div class="contenedor-hero">
-        <h1>Pokemon Website</h1>
+    <nav class="display">
+      <div class="contenedor-info display">
+        <div class="contenedor-img">
+          <img src="./images/Pokebola.png" alt="Logo Pokebola" />
+        </div>
+        <div class="contenedor-titulo display">
+          <h1>Pokemon Website</h1>
+        </div>
       </div>
-      <section class="busqueda">
-        <div class="input-container-busqueda">
+      <section class="busquedaSeccion display">
+        <div class="contenedor-busqueda display">
+          <label for="numLimit">Muestra: </label>
+          <input
+            type="number"
+            id="numPokemon"
+            placeholder="5"
+            value="24"
+            name="numLimit"
+          />
+          <button id="mostrarPokemons" class="button">
+            <i class="bx bx-message-square-add"></i>
+          </button>
+        </div>
+      </section>
+      <section class="busqueda display">
+        <div class="input-container-busqueda display">
+          <label
+            for="busqueda"
+            class="label icon-busqueda"
+            id="mostrar_palabras"
+            >Seach by name:
+          </label>
           <input
             type="text"
             id="busqueda"
@@ -38,42 +64,17 @@
             placeholder="Buscar por nombre"
             required
           />
-          <label
-            for="busqueda"
-            class="label icon-busqueda"
-            id="mostrar_palabras"
-          ></label>
         </div>
       </section>
+    </nav>
+    <main class="display">
+      <section class="show display">
+        <div class="contenedor-pokemons display" id="contenedor-images"></div>
+      </section>
     </main>
-
-    <section class="busquedaSeccion">
-      <div class="contenedor-busqueda">
-        <label for="numLimit">Muestra: </label>
-        <input
-          type="number"
-          id="numPokemon"
-          placeholder="5"
-          value="5"
-          name="numLimit"
-        />
-
-        <button id="mostrarPokemons" class="button">
-          <i class="bx bx-message-square-add"></i>
-        </button>
-      </div>
-    </section>
-
-    <section class="show">
-      <div class="contenedor-pokemons" id="contenedor-images"></div>
-    </section>
     <footer>
-      <h3>
-        ©Derechos Reservados
-      </h3>
-      <h3>
-        Cristina Jerez Salas
-      </h3>
-      </footer>
+      <h3>©Derechos Reservados</h3>
+      <h3>Cristina Jerez Salas</h3>
+    </footer>
   </body>
 </html>
