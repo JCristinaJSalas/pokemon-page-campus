@@ -14,6 +14,7 @@ let color,
   nombre;
 
 const urlMockApi = "https://6509ed8cf6553137159c442b.mockapi.io/pokemonAPI";
+const urlJsonServer = "http://127.0.54.1:5414/pokemons"
 
 export const alertPokemon = async (info) => {
   try {
@@ -41,7 +42,7 @@ export const alertPokemon = async (info) => {
     );
     const fotoTipo = simbolo(tipoPoke);
     //Alerta
-    const nameMockapi = await leerMockapi(urlMockApi);
+    const nameMockapi = await leerMockapi(urlJsonServer);
     nombrePoke = nameMockapi.map((e) => e.name);
     nuevaEspacificacion = nameMockapi.find(
       (e) => e.name === info.name
@@ -126,14 +127,14 @@ export const alertPokemon = async (info) => {
           name: input.dataset.stat,
           base: parseInt(input.value),
         }));
-        guardarPoke(urlMockApi, newEspecificaciones, name);
+        guardarPoke(urlJsonServer, newEspecificaciones, name);
       }
     });
 
     //evalua si esta en la Mockapi
 
     const especificaciones = await estatus;
-    evaluaMockapi(urlMockApi, name, especificaciones);
+    evaluaMockapi(urlJsonServer, name, especificaciones);
 
     document.addEventListener("input", (e) => {
       if (e.target.matches(".rango")) {

@@ -1,0 +1,124 @@
+{
+  "pokemons": [
+    {
+      "name": "bulbasaur",
+      "especificaciones": [
+        {
+          "name": "hp",
+          "base": 45
+        },
+        {
+          "name": "attack",
+          "base": 49
+        },
+        {
+          "name": "defense",
+          "base": 49
+        },
+        {
+          "name": "special-attack",
+          "base": 65
+        },
+        {
+          "name": "special-defense",
+          "base": 65
+        },
+        {
+          "name": "speed",
+          "base": 45
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "ivysaur",
+      "especificaciones": [
+        {
+          "name": "hp",
+          "base": 60
+        },
+        {
+          "name": "attack",
+          "base": 62
+        },
+        {
+          "name": "defense",
+          "base": 63
+        },
+        {
+          "name": "special-attack",
+          "base": 80
+        },
+        {
+          "name": "special-defense",
+          "base": 80
+        },
+        {
+          "name": "speed",
+          "base": 60
+        }
+      ],
+      "id": 2
+    },
+    {
+      "name": "venusaur",
+      "especificaciones": [
+        {
+          "name": "hp",
+          "base": 80
+        },
+        {
+          "name": "attack",
+          "base": 82
+        },
+        {
+          "name": "defense",
+          "base": 83
+        },
+        {
+          "name": "special-attack",
+          "base": 100
+        },
+        {
+          "name": "special-defense",
+          "base": 100
+        },
+        {
+          "name": "speed",
+          "base": 80
+        }
+      ],
+      "id": 3
+    },
+    {
+      "name": "charmander",
+      "especificaciones": [
+        {
+          "name": "hp",
+          "base": 39
+        },
+        {
+          "name": "attack",
+          "base": 52
+        },
+        {
+          "name": "defense",
+          "base": 43
+        },
+        {
+          "name": "special-attack",
+          "base": 60
+        },
+        {
+          "name": "special-defense",
+          "base": 50
+        },
+        {
+          "name": "speed",
+          "base": 65
+        }
+      ],
+      "id": 4
+    }
+  ]
+}
