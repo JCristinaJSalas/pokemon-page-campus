@@ -7,9 +7,8 @@ Educational website for interacturing with an API and MockAPI
 ### Platform Description
 
 - section 1: Title
-- section 2: Input for Search the pokemon by name
-- section 3: Input for Filter the Pokemon by cuantity
-- section 4: Show the Cards
+- section 2: Input for Filter the Pokemon by cuantity
+- section 3: Show the Cards
 
 ### How to used
 
@@ -39,11 +38,6 @@ fontFamily: "Inclusive Sans", sans-serif;
 <h4>Filter by Limit</h4>
 <p>The filter view. One of the filters works by number. You enter a number and It's going to show the pokemons from 0 until the number.</p>
 <div align="center"><img src="imagenes/../images/filtro-number.PNG" alt="NAV" style="height: 350px;" /></div>
-
-
-<h4>Filter by Name</h4>
-<p>Another way to filter the searching mode is by name. Be free, you will going to see whatever pokemon with some of letters.</p>
-<div align="center"><img src="imagenes/../images/filtro-palabra.PNG" alt="NAV" style="height: 350px;" /></div>
 
 <h4>Card</h4>
 <p>The card is going to play it, feel free to move the radio input and put or take off exp for the pokemon</p>
