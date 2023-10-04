@@ -6,7 +6,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
     />
-
     <link rel="icon" type="image/x-icon" href="/images/pokemon-icon.webp" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -21,60 +20,24 @@
     <script type="module" src="main.js" defer></script>
     <title>Pokémon</title>
   </head>
-
   <body>
-    <nav class="display">
-      <div class="contenedor-info display">
-        <div class="contenedor-img">
-          <img src="./images/Pokebola.png" alt="Logo Pokebola" />
-        </div>
-        <div class="contenedor-titulo display">
-          <h1>Pokemon Website</h1>
-        </div>
-      </div>
-      <section class="busquedaSeccion display">
-        <div class="contenedor-busqueda display">
-          <label for="numLimit">Muestra: </label>
-          <input
-            type="number"
-            id="numPokemon"
-            placeholder="5"
-            value="24"
-            name="numLimit"
-          />
-          <button id="mostrarPokemons" class="button">
-            <i class="bx bx-message-square-add"></i>
-          </button>
-        </div>
-      </section>
-      <section class="busqueda display">
-        <div class="input-container-busqueda display">
-          <label
-            for="busqueda"
-            class="label icon-busqueda"
-            id="mostrar_palabras"
-            >Seach by name:
-          </label>
-          <input
-            type="text"
-            id="busqueda"
-            name="busqueda"
-            class="text_input"
-            autocomplete="off"
-            placeholder="Buscar por nombre"
-            required
-          />
-        </div>
-      </section>
-    </nav>
-    <main class="display">
-      <section class="show display">
-        <div class="contenedor-pokemons display" id="contenedor-images"></div>
-      </section>
+    <main>
+      <h1>Pokemon Website</h1>
+      <input type="number" placeholder="5" value="5" id="limite" />
     </main>
+    
+    <section class="contenedor">
+        <div id="contenedorPokemons" class="contenedorPokemons">
+        </div>
+    </section>
+    <section>
+      <div class="modal" id="contenedor-mostrar">
+      </div>
+  </section>
     <footer>
       <h3>©Derechos Reservados</h3>
       <h3>Cristina Jerez Salas</h3>
     </footer>
-  </body>
+
+</body>
 </html>
