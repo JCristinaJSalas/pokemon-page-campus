@@ -1,31 +1,23 @@
-import { busqueda } from "./modulos/busqueda.js";
-import { mostrarTarjeta } from "./modulos/mostrarTarjeta.js";
-
-const num = document.querySelector("#numPokemon");
-const botonBusqueda = document.querySelector("#mostrarPokemons");
-const contenedorPokemon = document.querySelector(".contenedor-pokemons");
-
-
-const urlApi = "https://pokeapi.co/api/v2/pokemon?limit=";
-
-
+import { writePokemon } from "./modulos/funciones.js";
+//seleccion desde DOM
+const limite = document.querySelector("#limite");
+const urlPokeApi = "https://pokeapi.co/api/v2/pokemon?limit=";
+// Uso del input para limites
 addEventListener("DOMContentLoaded", () => {
-  const urlApiLimit = urlApi + num.value;
-  mostrarTarjeta(urlApiLimit);
-  const allPoke = urlApi + 1450;
-  busqueda(urlApiLimit, allPoke);
-
-
-  num.addEventListener("keydown", async (e) => {
-    contenedorPokemon.innerHTML = "";
+  const limiteValue = limite.value;
+  const urlPokeApiLimite = `${urlPokeApi + limiteValue}`;
+  writePokemon(urlPokeApiLimite);
+  limite.addEventListener("keydown", async (e) => {
+    contenedorPokemons.innerHTML = "";
     if (e.key === "Enter") {
-      const urlApiLimit = urlApi + num.value;
-      await mostrarTarjeta(urlApiLimit);
+      const urlApiLimit = urlPokeApi + limite.value;
+      await writePokemon(urlApiLimit);
     }
   });
-  botonBusqueda.addEventListener("click", async (e) => {
-    contenedorPokemon.innerHTML = "";
-    const urlApiLimit = urlApi + num.value;
-    await mostrarTarjeta(urlApiLimit);
+  limite.addEventListener("input", async () => {
+    contenedorPokemons.innerHTML = "";
+    const urlApiLimit = urlPokeApi + limite.value;
+    await writePokemon(urlApiLimit);
   });
 });
+
