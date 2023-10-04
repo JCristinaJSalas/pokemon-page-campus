@@ -93,8 +93,11 @@ input:hover, input:focus {
 .contenedorPokemon img{
   width: 50%;
   height: 50%;
-
 }
+.contenedorPokemon img:hover{
+filter: drop-shadow(0 10px 15px var(--botonHover));
+}
+
 .contenedorImg{
   height: 90%;
   align-self: center;
@@ -196,6 +199,13 @@ form h4{
 }
 .contenedor-foto img{
   width: 45px;
+}
+.contenedor-tipo-alerta{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  gap: 15px;
 }
 /*footer*/
 footer {

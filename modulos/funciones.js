@@ -21,7 +21,7 @@ export const writePokemon = async (urlPokeApiLimite) => {
       //estilos personalizados
   const urlColor = await (await fetch(dataPoke.species.url)).json();
   const color =urlColor.color.name
-  const estiloCaja = `color: ${color};border: 1.5px solid ${color};`;
+  const estiloCaja = `color: ${color};border: 2px solid ${color};border-radius: 20px;background: #0000009f;`;
 
     const contenedor = document.createElement("div");
     contenedor.className = "contenedorPokemon";
